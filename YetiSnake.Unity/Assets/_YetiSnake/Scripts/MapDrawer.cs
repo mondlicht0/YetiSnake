@@ -4,6 +4,8 @@ namespace YetiSnake.MapDraw
 {
     public class MapDrawer : MonoBehaviour
     {
+        public static MapDrawer Instance { get; private set; }
+
         private GameObject _map;
         private SpriteRenderer _mapRenderer;
 
@@ -16,6 +18,20 @@ namespace YetiSnake.MapDraw
         public Color SecondColor;
 
         private Node[,] _grid;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+
+            else
+            {
+                Destroy(Instance);
+                Instance = this;
+            }
+        }
 
         private void Start()
         {
@@ -36,8 +52,8 @@ namespace YetiSnake.MapDraw
                 for (int y = 0; y < _maxHeight; y++)
                 {
                     Vector3 pos = Vector3.zero;
-                    pos.x = x / 2.5f;
-                    pos.y = y / 2.5f;
+                    pos.x = x;
+                    pos.y = y;
 
                     Node n = new Node()
                     {
@@ -82,7 +98,7 @@ namespace YetiSnake.MapDraw
             texture.Apply();
 
             Rect rect = new Rect(0, 0, _maxWidth, _maxHeight);
-            Sprite sprite = Sprite.Create(texture, rect, Vector2.one * 0.5f, 2.5f, 0, SpriteMeshType.FullRect);
+            Sprite sprite = Sprite.Create(texture, rect, Vector2.zero, 1, 0, SpriteMeshType.FullRect);
 
             _mapRenderer.sprite = sprite;
             _mapRenderer.sortingOrder = 1;

@@ -5,11 +5,18 @@ namespace YetiSnake.PlayerObject
     public class Player : MonoBehaviour
     {
         public Color PlayerColor;
+        public Node PlayerNode {  get; private set; }
 
-        public void InitPlayer(Vector3 startPosition)
+        public void SetPlayerNode(Node node)
+        {
+            PlayerNode = node;
+        }
+
+        public void InitPlayer(Node playerNode)
         {
             PlacePlayer();
-            SetStartPosition(startPosition);
+            SetPlayerNode(playerNode);
+            SetStartPosition(playerNode.WordPosition);
         }
 
         private void PlacePlayer()
@@ -32,7 +39,7 @@ namespace YetiSnake.PlayerObject
             texture.filterMode = FilterMode.Point;
 
             Rect rect = new Rect(0, 0, 1, 1);
-            Sprite sprite = Sprite.Create(texture, rect, Vector2.one * 0.5f, 2.5f, 0, SpriteMeshType.FullRect);
+            Sprite sprite = Sprite.Create(texture, rect, Vector2.zero, 1, 0, SpriteMeshType.FullRect);
 
             return sprite;
         }

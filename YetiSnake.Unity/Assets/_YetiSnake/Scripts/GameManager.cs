@@ -6,15 +6,31 @@ namespace YetiSnake
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private MapDrawer _mapDrawer;
+        public static GameManager Instance {  get; private set; }
+
+        [field: SerializeField] public MapDrawer MapDrawer { get; private set; }
 
         [Header("Player Prefab")]
         [SerializeField] private Player _player;
 
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+
+            else
+            {
+                Destroy(Instance);
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
             Player player = Instantiate(_player);
-            player.InitPlayer(_mapDrawer.GetNode(3, 3).WordPosition);
+            player.InitPlayer(MapDrawer.GetNode(3, 3));
         }
     }
 }
