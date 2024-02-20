@@ -33,7 +33,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""id"": ""d37a2656-1e7e-4a66-a077-498048e6898b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 },
                 {

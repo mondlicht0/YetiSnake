@@ -1,6 +1,8 @@
+using System.Threading;
 using UnityEngine;
 using YetiSnake.Input;
 using YetiSnake.MapDraw;
+using YetiSnake.YetiNodes;
 
 namespace YetiSnake.PlayerObject
 {
@@ -9,58 +11,73 @@ namespace YetiSnake.PlayerObject
         private Player _player;
 
         [SerializeField] private MobileInput _swipeInput;
+        private InputHandler _inputHandler;
+
+        [SerializeField] private float _moveRate = 0.25f;
+        private float _timer;
 
         private MoveDirection _currentMoveDirection;
         private bool _up, _down, _left, _right;
-        private bool _shouldMove;
 
         private void Awake()
         {
             _player = GetComponent<Player>();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            SetPlayerDirection();
-            Move();
+            
         }
 
-        private void SetPlayerDirection()
+        private void OnDisable()
         {
+            InputHandler.Instance.OnEndTouch += SetPlayerDirection;
+        }
+
+        private void Start()
+        {
+            InputHandler.Instance.OnEndTouch += SetPlayerDirection;
+        }
+
+        private void Update()
+        {
+            _timer += Time.deltaTime;
+
+            if (_timer > _moveRate)
+            {
+                _timer = 0;
+                Move();
+            }
+        }
+
+        private void SetPlayerDirection(Vector2 position, float time)
+        {
+
             if (_swipeInput.ToUp)
             {
+            Debug.Log("Ocenka");
                 _currentMoveDirection = MoveDirection.Up;
-                _shouldMove = true;
             }
 
             else if (_swipeInput.ToDown)
             {
+                Debug.Log("Ocenka");
                 _currentMoveDirection = MoveDirection.Down;
-                _shouldMove = true;
             }
 
             else if (_swipeInput.ToLeft)
             {
                 _currentMoveDirection = MoveDirection.Left;
-                _shouldMove = true;
             }
 
             else if (_swipeInput.ToRight)
             {
                 _currentMoveDirection = MoveDirection.Right;
-                _shouldMove = true;
             }
         }
 
         private void Move()
         {
-            if (!_shouldMove)
-            {
-                return;
-            }
-
-            _shouldMove = false;
-
             int x = 0;
             int y = 0;
 
@@ -89,8 +106,15 @@ namespace YetiSnake.PlayerObject
 
             else
             {
+                if (targetNode == GameManager.Instance.YetiNode)
+                {
+                    GameManager.Instance.RandomSpawnYeti();
+                }
+
+                MapDrawer.Instance.AvaliableNodes.Remove(_player.PlayerNode);
                 transform.position = targetNode.WordPosition;
                 _player.SetPlayerNode(targetNode);
+                MapDrawer.Instance.AvaliableNodes.Add(_player.PlayerNode);
             }
         }
     }

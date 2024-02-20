@@ -560,6 +560,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8381870464541437160, guid: ef053f522226d984f9334757c50142f2, type: 3}
+      propertyPath: _yetiPrefab
+      value: 
+      objectReference: {fileID: 4265274875545487384, guid: 95c855c7f246ba14f983817fb84d9c78, type: 3}
+    - target: {fileID: 8381870464541437160, guid: ef053f522226d984f9334757c50142f2, type: 3}
+      propertyPath: _yetiSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 701f260ee4a0dcb43a9417893ebd6852, type: 3}
+    - target: {fileID: 8381870464541437160, guid: ef053f522226d984f9334757c50142f2, type: 3}
       propertyPath: FirstColor.a
       value: 1
       objectReference: {fileID: 0}

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using YetiSnake.PlayerObject;
 
 namespace YetiSnake.MapDraw
 {
@@ -18,6 +20,9 @@ namespace YetiSnake.MapDraw
         public Color SecondColor;
 
         private Node[,] _grid;
+        private List<Node> _avaliableNodes = new List<Node>();
+
+        public List<Node> AvaliableNodes { get => _avaliableNodes; }
 
         private void Awake()
         {
@@ -31,19 +36,16 @@ namespace YetiSnake.MapDraw
                 Destroy(Instance);
                 Instance = this;
             }
-        }
 
-        private void Start()
-        {
             DrawMap();
         }
 
         private void DrawMap()
         {
+            _grid = new Node[_maxWidth, _maxHeight];
             _map = new GameObject("Map");
             _mapRenderer = _map.AddComponent<SpriteRenderer>();
 
-            _grid = new Node[_maxWidth, _maxHeight];
 
             Texture2D texture = new Texture2D(_maxWidth, _maxHeight);
 
@@ -63,6 +65,7 @@ namespace YetiSnake.MapDraw
                     };
 
                     _grid[x, y] = n;
+                    _avaliableNodes.Add(n);
 
 
                     if (x % 2 == 0)
