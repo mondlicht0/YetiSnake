@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swipeInput: {fileID: -3880928448681141896}
-  _moveRate: 0.5
+  _moveRate: 0.25
 --- !u!114 &-3880928448681141896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,9 +18,9 @@ namespace YetiSnake.PlayerObject
         public Node PlayerNode { get; private set; }
         public Node PreviousPlayerNode { get; private set; }
         public List<TailNode> Tail { get; private set; } = new List<TailNode>();
+        public GameObject TailParent { get => _tailParent; }
         #endregion
-
-        public event Action OnYetiEated;
+        
 
         public void SetPlayerNode(Node node)
         {
@@ -61,6 +61,16 @@ namespace YetiSnake.PlayerObject
             gameObject.transform.localScale = Vector3.one * 1.2f;
 
             _tailParent = new GameObject("TailParent");
+        }
+
+        public void ClearTail()
+        {
+            foreach (var tail in Tail)
+            {
+                Destroy(tail.Object);
+            }
+
+            Tail.Clear();
         }
 
         private void SetStartPosition(Vector3 position)

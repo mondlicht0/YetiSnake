@@ -1,4 +1,7 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using YetiSnake.Utilities;
 
 namespace YetiSnake.MainMenu
 {
@@ -9,6 +12,12 @@ namespace YetiSnake.MainMenu
         [SerializeField] private Canvas _levelsCanvas;
         [SerializeField] private Canvas _leaderboardCanvas;
         [SerializeField] private Canvas _settingsCanvas;
+        [SerializeField] private TextMeshProUGUI _highScoreText;
+
+        private void Start()
+        {
+            _highScoreText.text = $"HIGH SCORE - {PlayerPrefs.GetInt(PlayerPrefsContainer.HighScoreKey)}";
+        }
 
         public void OnLevelsButtonClick()
         {
@@ -18,19 +27,19 @@ namespace YetiSnake.MainMenu
 
         public void OnChallengeButtonClick()
         {
-            // load new scene
+            SceneManager.LoadScene(2);
         }
 
-        public void OnLeaderboardButtonClick()
+/*        public void OnLeaderboardButtonClick()
         {
             _mainMenuCanvas.gameObject.SetActive(false);
             _levelsCanvas.gameObject.SetActive(true);
-        }
+        }*/
 
         public void OnSettingsButtonClick()
         {
             _mainMenuCanvas.gameObject.SetActive(false);
-            _levelsCanvas.gameObject.SetActive(true);
+            _settingsCanvas.gameObject.SetActive(true);
         }
 
         public void OnPrivacyPolicyButtonClick()

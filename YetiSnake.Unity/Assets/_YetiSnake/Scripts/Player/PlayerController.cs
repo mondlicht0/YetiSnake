@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,6 +24,8 @@ namespace YetiSnake.PlayerObject
         private bool _up, _down, _left, _right;
 
         private List<TailNode> _tail => _player.Tail;
+
+        public event Action OnYetiEated;
 
         private void Awake()
         {
@@ -113,14 +116,14 @@ namespace YetiSnake.PlayerObject
 
             if ( targetNode == null )
             {
-                // Game Over
+                GameManager.Instance.GameOver();
             }
 
             else
             {
                 if (isTailNode(targetNode))
                 {
-                    // game over
+                    GameManager.Instance.GameOver();
                 }
 
                 else
@@ -138,6 +141,8 @@ namespace YetiSnake.PlayerObject
 
                     if (isYeti)
                     {
+                        OnYetiEated?.Invoke();
+
                         _player.Tail.Add(_player.CreateTailNode(previousNode.X, previousNode.Y));
                         MapDrawer.Instance.AvaliableNodes.Remove(previousNode);
                         GameManager.Instance.RandomSpawnYeti();

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YetiSnake.Nodes;
 
 namespace YetiSnake.MapDraw
@@ -36,11 +37,20 @@ namespace YetiSnake.MapDraw
                 Destroy(Instance);
                 Instance = this;
             }
-
-            DrawMap();
         }
 
-        private void DrawMap()
+        private void OnEnable()
+        {
+            
+        }
+
+        public void ClearMap()
+        {
+            _avaliableNodes.Clear();
+            _grid = null;
+        }
+
+        public void DrawMap()
         {
             _grid = new Node[_maxWidth, _maxHeight];
             _map = new GameObject("Map");
