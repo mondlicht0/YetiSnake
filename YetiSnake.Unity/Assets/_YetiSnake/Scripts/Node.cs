@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace YetiSnake
+namespace YetiSnake.Nodes
 {
     public class Node
     {

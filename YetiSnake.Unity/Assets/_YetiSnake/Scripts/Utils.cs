@@ -20,13 +20,19 @@ namespace YetiSnake.Utilities
                 texture.filterMode = FilterMode.Point;
 
                 Rect rect = new Rect(0, 0, 1, 1);
-                Sprite sprite = Sprite.Create(texture, rect, Vector2.zero, 1, 0, SpriteMeshType.FullRect);
+                Sprite sprite = Sprite.Create(texture, rect, Vector2.one * 0.5f, 1, 0, SpriteMeshType.FullRect);
 
                 return sprite;
             }
 
             return image;
 
+        }
+
+        public static void PlaceObject(GameObject obj, Vector3 pos)
+        {
+            pos += Vector3.one * 0.5f;
+            obj.transform.position = pos;
         }
     }
 }

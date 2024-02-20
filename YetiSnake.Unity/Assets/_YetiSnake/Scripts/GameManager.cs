@@ -1,7 +1,7 @@
 using UnityEngine;
 using YetiSnake.PlayerObject;
 using YetiSnake.MapDraw;
-using YetiSnake.YetiNodes;
+using YetiSnake.Nodes;
 using YetiSnake.Utilities;
 
 namespace YetiSnake
@@ -58,7 +58,7 @@ namespace YetiSnake
             _yetiObject = new GameObject("Yeti");
             SpriteRenderer yetiRenderer = _yetiObject.AddComponent<SpriteRenderer>();
             yetiRenderer.sprite = Utils.CreateSprite(Color.red, _yetiSprite);
-            yetiRenderer.sortingOrder = 1;
+            yetiRenderer.sortingOrder = 2;
 
             RandomSpawnYeti();
         }
@@ -67,7 +67,8 @@ namespace YetiSnake
         {
             int randPos = Random.Range(0, MapDrawer.AvaliableNodes.Count);
             Node node = MapDrawer.AvaliableNodes[randPos];
-            _yetiObject.transform.position = node.WordPosition;
+            Utils.PlaceObject(_yetiObject, node.WordPosition); 
+            //_yetiObject.transform.position = node.WordPosition;
             _yetiNode = node;
         }
     }

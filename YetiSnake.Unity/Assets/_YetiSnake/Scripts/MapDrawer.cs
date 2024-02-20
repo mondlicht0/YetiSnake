@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using YetiSnake.PlayerObject;
+using YetiSnake.Nodes;
 
 namespace YetiSnake.MapDraw
 {
