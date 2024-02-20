@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_YetiSnake/Scenes/Menu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_YetiSnake/Scenes/Gameplay.unity
+    guid: cffe26948a095114a87e1c787566feb7
+  - enabled: 1
+    path: Assets/_YetiSnake/Scenes/Challenge.unity
+    guid: f2bbfb185a8e91a448ab78bf288b1c04
   m_configObjects: {}

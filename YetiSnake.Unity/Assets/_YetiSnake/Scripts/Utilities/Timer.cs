@@ -11,12 +11,12 @@ namespace YetiSnake.Utilities
         [SerializeField] private Image _timerFill;
 
         private int _remainingTime;
-        private bool _isPause = false;
 
         public event Action OnEndTimer;
 
         public void StartTimer(int duration, bool isPause)
         {
+            _timerFill.DOKill();
             _timerFill.fillAmount = 0;
             _remainingTime = duration;
             StartCoroutine(UpdateTimer(duration, isPause));

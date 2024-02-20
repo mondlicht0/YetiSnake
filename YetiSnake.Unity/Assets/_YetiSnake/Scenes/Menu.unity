@@ -404,6 +404,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519541298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2227788726171120925, guid: ece7399bde5a11c43bfa4d6a0a203d87, type: 3}
+  m_PrefabInstance: {fileID: 5267058530818359163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,12 +530,108 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6706690653744075135, guid: ece7399bde5a11c43bfa4d6a0a203d87, type: 3}
   m_PrefabInstance: {fileID: 5267058530818359163}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 519541298}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90be8cae431cc064d8a0fbc208b060f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1363656818
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519541298}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bfec614c5fe393645b125fa187fe74ac, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1586377366
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,35 +844,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 262968281335980043, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262968281335980043, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 262968281335980043, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3409849663877507209, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1363656818}
+    - target: {fileID: 3409849663877507209, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_volume
       objectReference: {fileID: 0}
     - target: {fileID: 3805449977009017462, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1363656817}
+    - target: {fileID: 3805449977009017462, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBackButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805449977009017462, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YetiSnake.MainMenu.MainMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6180218568174370680, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6353163892796457925, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 6180218568174370680, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6353163892796457925, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6353163892796457925, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7517271144509767111, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
       propertyPath: m_Pivot.x
@@ -861,6 +978,11 @@ PrefabInstance:
 --- !u!224 &2624850818367432755 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7517271144509767111, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
+  m_PrefabInstance: {fileID: 2624850818367432754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2624850818367432756 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7609128446038972917, guid: 981cbfd848c6bf3479062335f7dd3d58, type: 3}
   m_PrefabInstance: {fileID: 2624850818367432754}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3792016236224200306
@@ -1103,6 +1225,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7685923884745761349, guid: 1b6c86d3379602f48847bbf470707d5b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1363656817}
+    - target: {fileID: 7685923884745761349, guid: 1b6c86d3379602f48847bbf470707d5b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSettingsButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685923884745761349, guid: 1b6c86d3379602f48847bbf470707d5b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YetiSnake.MainMenu.MainMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7743564772475121150, guid: 1b6c86d3379602f48847bbf470707d5b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1113,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8789060554490753195, guid: 1b6c86d3379602f48847bbf470707d5b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1184,10 +1318,17 @@ PrefabInstance:
       propertyPath: _mainMenuCanvas
       value: 
       objectReference: {fileID: 1957769153}
+    - target: {fileID: 6706690653744075135, guid: ece7399bde5a11c43bfa4d6a0a203d87, type: 3}
+      propertyPath: _settingsCanvas
+      value: 
+      objectReference: {fileID: 2624850818367432756}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2227788726171120925, guid: ece7399bde5a11c43bfa4d6a0a203d87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1363656818}
   m_SourcePrefab: {fileID: 100100000, guid: ece7399bde5a11c43bfa4d6a0a203d87, type: 3}
 --- !u!1001 &6884078371137460325
 PrefabInstance:

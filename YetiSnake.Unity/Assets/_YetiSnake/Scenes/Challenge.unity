@@ -4859,7 +4859,7 @@ PrefabInstance:
       objectReference: {fileID: 4924981313445097446, guid: 74afed4a3c823004691e4f2d94cb7a9a, type: 3}
     - target: {fileID: 8381870464541437160, guid: ef053f522226d984f9334757c50142f2, type: 3}
       propertyPath: Duration
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8381870464541437160, guid: ef053f522226d984f9334757c50142f2, type: 3}
       propertyPath: _maxWidth
