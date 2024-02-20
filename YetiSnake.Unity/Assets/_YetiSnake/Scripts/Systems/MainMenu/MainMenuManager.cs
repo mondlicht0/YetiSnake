@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using YetiSnake.Utilities;
+using YetiSnake.PlayerObject;
 
-namespace YetiSnake.MainMenu
+namespace YetiSnake
 {
     public class MainMenuManager : MonoBehaviour
     {

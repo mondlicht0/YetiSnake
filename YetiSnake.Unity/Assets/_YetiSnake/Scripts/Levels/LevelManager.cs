@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+namespace YetiSnake.Levels
 {
-    public static LevelManager Instance;
-
-    private void Awake()
+    public class LevelManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static LevelManager Instance;
+
+        private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+
+            else
+            {
+                Destroy(Instance);
+                Instance = this;
+            }
         }
 
-        else
+        public void LoadLevel(Level level)
         {
-            Destroy(Instance);
-            Instance = this;
+            SceneManager.LoadScene(level.SceneIndex);
         }
-    }
-
-    public void LoadLevel(Level level)
-    {
-        SceneManager.LoadScene(level.SceneIndex);
     }
 }

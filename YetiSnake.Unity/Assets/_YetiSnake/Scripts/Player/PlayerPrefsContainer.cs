@@ -1,4 +1,4 @@
-namespace YetiSnake.Utilities
+namespace YetiSnake.PlayerObject
 {
     public static class PlayerPrefsContainer
     {

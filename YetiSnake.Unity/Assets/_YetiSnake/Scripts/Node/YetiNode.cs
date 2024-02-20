@@ -1,7 +1,7 @@
 using UnityEngine;
 using YetiSnake.PlayerObject;
 
-namespace YetiSnake.YetiNodes
+namespace YetiSnake.Nodes
 {
     public class YetiNode : MonoBehaviour
     {
